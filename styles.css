@@ -1,0 +1,91 @@
+/* Importamos Tailwind v4 */
+@import "tailwindcss";
+
+/* Definimos tu tema personalizado */
+@theme {
+  /* --- COLORES --- */
+  --color-neon: #ff652e;
+  --color-neon-dark: #cc5125;
+  --color-midnight: #0b1121;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  --color-slate-800: #1e293b;
+  --color-retro-black: #0a0a0a;
+
+  /* --- FUENTES --- */
+  /* Nota: Recuerda que las fuentes se cargan desde Google Fonts en el HTML */
+  --font-pixel: "Press Start 2P", cursive;
+  --font-terminal: "VT323", monospace;
+  --font-mono: "Space Mono", monospace;
+  --font-inter: "Inter", sans-serif;
+
+  /* --- BOX SHADOWS --- */
+  --shadow-retro: 4px 4px 0px 0px rgba(255, 101, 46, 0.5);
+  --shadow-retro-white: 4px 4px 0px 0px rgba(255, 255, 255, 1);
+  --shadow-retro-hover: 2px 2px 0px 0px rgba(255, 255, 255, 1);
+
+  /* --- ANIMACIONES --- */
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-grid-flow: gridFlow 20s linear infinite;
+  --animate-grid-flow-slow: gridFlow 60s linear infinite;
+
+  /* --- KEYFRAMES --- */
+  @keyframes gridFlow {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 1000px;
+    }
+  }
+}
+
+/* --- ESTILOS GLOBALES --- */
+body {
+  margin: 0;
+  background-color: var(--color-midnight);
+  /* Los gradientes complejos se definen mejor aquí o como clases utilitarias */
+  background-image: radial-gradient(circle at center, #1e293b 0%, #0b1121 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- SCROLLBAR PERSONALIZADO --- */
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--color-midnight);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon);
+  border: 2px solid var(--color-midnight);
+}
+
+/* --- CLASES DE UTILIDAD PERSONALIZADAS --- */
+@layer utilities {
+  /* Patrón de rejilla base */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  /* Patrón de rejilla pequeña */
+  .bg-grid-small {
+    background-size: 10px 10px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+
+  /* Fondo Matrix (Aquí está el arreglo) */
+  .bg-matrix {
+    background-image: url("https://giffiles.alphacoders.com/222/222829.gif");
+  }
+}
